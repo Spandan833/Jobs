@@ -27,8 +27,8 @@
                     <div class="card-title"><strong><%=job.role%></strong></div>
                     <div class="card-subtitle"><%=job.company%></div>
                     <div class="card-salary"><b>Salary:    <%=job.salary %></b></div>
-                    <h3 class="description">Description:</h3>
-                    <div><%=job.description %></div>
+                    <h3>Description:</h3>
+                    <div  class="card-description"><%=job.description %></div>
                 </div>
                 <div class="footer">
                     <form action="/user/<%=user.id%>/<%=job.id%>?_method=PUT" method="POST"><button id="apply">Apply</button></form>

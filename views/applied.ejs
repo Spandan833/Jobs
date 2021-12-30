@@ -32,7 +32,7 @@
                     <td><%=job.role %></td>
                     <td><%=job.company %></td>
                     <td><%=job.salary %></td>
-                    <td><form action="/user/<%=user.id%><%=job.id%>?_method=PUT" method="POST"><button id="apply">Withdraw</button></form></td>
+                    <td><form action="/user/<%=user.id%>/<%=job.id%>?_method=DELETE" method="POST"><button id="apply">Withdraw</button></form></td>
                 </tr>    
             <% }) %> 
         </table>

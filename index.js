@@ -13,14 +13,15 @@ const flash = require("express-flash");
 const session = require("express-session");
 const methodOverride = require("method-override");
 const { Job } = require("./models/Job");
+
+mongoose.connect("mongodb+srv://Aizen833:ScarTissue1999@hogyoku.kmr9q.mongodb.net/JobHunter?retryWrites=true&w=majority", () => {
+  console.log("connected to mongodb atlas");
+});
+
 const jobRouter = require("./routes/jobs");
 app.use(methodOverride("_method"));
 
 const port = 5000;
-
-mongoose.connect("mongodb://localhost:27017/Jobs", () => {
-  console.log("connected to local mongodb server");
-});
 
 
 
@@ -37,7 +38,7 @@ initializePassport(
     }
   },
   async (id) => {
-    let user = User.findById(id);
+    let user = await User.findById(id);
     return user;
   }
 );

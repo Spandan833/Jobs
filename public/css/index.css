@@ -41,7 +41,7 @@ li a{
     border: 0.8px solid rgb(227, 186, 235);
     padding: 10px;
     width: 300px;
-    min-height: 320px;
+    height: 350px;
     font-family: sans-serif;
     border-radius: 30px;
     transition: all 0.2s;
@@ -61,6 +61,11 @@ li a{
 }
 .card-salary{
     margin: 5px 0px 5px 0px;
+}
+.card-description{
+    height: 170px;
+    overflow: auto;
+    border: 1px solid rgba(240,240,240,0.5);
 }
 #apply{
     border: 0;

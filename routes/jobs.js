@@ -4,8 +4,7 @@ const {Job} = require('../models/Job');
 const User = require('../models/User');
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/Jobs')
-
+//job apply route
 router.put('/user/:id/:jobId',async (req,res) => {
     const user = await User.findById(req.params.id);
     const appliedTo = user.appliedTo;
@@ -22,16 +21,26 @@ router.put('/user/:id/:jobId',async (req,res) => {
     res.redirect(`/user/${userId}`)
 })
 
+//withdraw application
+router.delete('/user/:id/:jobId',async (req,res) => {
+    const user = await User.findById(req.params.id);
+    const appliedTo = user.appliedTo;
+    let updatedJobIds = appliedTo.filter(jobId => (jobId.toString() != req.params.jobId))
+    user.appliedTo = updatedJobIds;
+    await user.save();
+    res.redirect(`/user/${req.params.id}`)
+})
+
+//get applied jobs
 router.get('/user/:id',async (req,res) => {
     const user = await User.findById(req.params.id)
     let appliedJobIds = user.appliedTo;
     let appliedJobs = []
-
+    
     for(jobId of appliedJobIds){
         const job = await Job.findById(jobId);
         appliedJobs.push(job);
     }
-    console.log(appliedJobs);
     res.render('applied.ejs',{jobs: appliedJobs,user: user});
 })
 

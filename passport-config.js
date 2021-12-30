@@ -9,7 +9,6 @@ function initialize(passport,getUserByEmail,getUserById) {
         }
         try{
             if(await bcrypt.compare(password, user.password)){
-                mongoose.connect("mongodb://localhost:27017/Jobs")
                 return done(null,user);
             }else{
                 return done(null,false,{message: "Incorrect Password"});
