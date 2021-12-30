@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css">
+    <title>Job Hunter</title>
+    
+</head>
+<body>
+    <div class="header">
+        <ul>
+            <li><a href="/user/<%=user.id%> ">Profile</a></li>
+            <li><a href="">About Us</a></li>
+            <li><a href="">Suggest</a></li>
+        </ul>
+        <form action="/logout?_method=DELETE" method="POST">
+            <button type="submit" id="logout">Logout</button>
+        </form>
+    </div>
+    
+    <div class="container">
+        <% jobs.forEach(job => { %>
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title"><strong><%=job.role%></strong></div>
+                    <div class="card-subtitle"><%=job.company%></div>
+                    <div class="card-salary"><b>Salary:    <%=job.salary %></b></div>
+                    <h3 class="description">Description:</h3>
+                    <div><%=job.description %></div>
+                </div>
+                <div class="footer">
+                    <form action="/user/<%=user.id%>/<%=job.id%>?_method=PUT" method="POST"><button id="apply">Apply</button></form>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+    
+</body>
+</html>

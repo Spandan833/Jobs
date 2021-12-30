@@ -1,0 +1,78 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: verdana, arial, helvetica;
+    padding: 10px;
+}
+ul{
+    display: block;
+}
+li{
+    display:inline;
+    list-style-type: none;
+    margin: 2px 10px;
+}
+li a{
+    text-decoration: none;
+    color: black;
+
+}
+
+.container{
+    display: grid;
+    width: 100%;
+    padding: 50px 0px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px 0px;
+    align-items: center;
+    justify-items: center;
+}
+@media (max-width: 600px){
+    .container{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+.card{
+    
+    border: 0.8px solid rgb(227, 186, 235);
+    padding: 10px;
+    width: 300px;
+    min-height: 320px;
+    font-family: sans-serif;
+    border-radius: 30px;
+    transition: all 0.2s;
+}
+.card:hover{
+    margin-top: -15px;
+    box-shadow: 5px 5px 5px rgb(227, 186, 235);
+}
+
+.card-body{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.card-title{
+    font-size: 24px;
+}
+.card-salary{
+    margin: 5px 0px 5px 0px;
+}
+#apply{
+    border: 0;
+    padding: 10px 10px;
+    margin: 10px;
+    float: right;
+    background-color: blue;
+    color: white;
+    border-radius: 10px;
+}
+#apply a{
+    text-decoration: none;
+    text-emphasis: none;
+    color: white;
+}

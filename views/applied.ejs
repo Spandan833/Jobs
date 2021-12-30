@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/applied.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="header">
+        <ul>
+            <li><a href="">Profile</a></li>
+            <li><a href="">About Us</a></li>
+            <li><a href="">Suggest</a></li>
+        </ul>
+        <form action="/logout?_method=DELETE" method="POST">
+            <button type="submit" id="logout">Logout</button>
+        </form>
+    </div>
+    <div class="content">
+        <table>
+            <tr>
+                <th>Job Title</th>
+                <th>Company</th>
+                <th>Salary</th>
+                <th>Posted On</th>
+            </tr>
+            <%jobs.forEach((job)=>{ %>
+                <tr>
+                    <td><%=job.role %></td>
+                    <td><%=job.company %></td>
+                    <td><%=job.salary %></td>
+                    <td><form action="/user/<%=user.id%><%=job.id%>?_method=PUT" method="POST"><button id="apply">Withdraw</button></form></td>
+                </tr>    
+            <% }) %> 
+        </table>
+    </div>
+</body>

@@ -1,0 +1,48 @@
+body{
+    background-image: url("\images\web-g7cde72e04_1280.png");
+}
+
+form{
+    width: 380px;
+    max-width: 100%;
+    margin: 150px auto;
+    /* border: 2px solid rgba(0,0,0,0.9); */
+    border-radius: 30px;
+    padding: 20px 30px 10px 30px;
+    background-color: rgb(240, 240, 240);
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.2);
+}
+@media only screen and (max-width: 480px){
+    form{
+        margin: 40px auto;
+    }
+}
+
+.group {
+    margin: 8px 10px;
+}
+label {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    display: block;
+    margin: 0 10px;
+}
+input[type="text"],input[type="password"]{
+    margin: 5px 10px;
+    width: 90%;
+    border-radius: 5px;
+    height:30px;
+    border: 0;
+}
+.btn{
+    width: 30%;
+    color: white;
+    height: 40px;
+    border-radius: 20px;
+    background-color: rgb(58, 75, 189);
+    border: 0px;
+    position: relative;
+    left: 230px;
+}
+.btn:focus{
+    background-color:rgb(20, 33, 120);
+}
