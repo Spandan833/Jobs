@@ -10,12 +10,8 @@
 </head>
 <body>
     <div class="header">
-        <ul>
-            <li><a href="/user/<%=user.id%> ">Profile</a></li>
-            <li><a href="">About Us</a></li>
-            <li><a href="">Suggest</a></li>
-        </ul>
         <h1>Job Hunter</h1>
+        <p><a href="/user/<%=user.id%>">Your Jobs</a></p>
         <form action="/logout?_method=DELETE" method="POST">
             <button type="submit" id="logout">Logout</button>
         </form>
