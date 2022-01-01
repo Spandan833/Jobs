@@ -31,7 +31,7 @@ router.delete('/user/:id/:jobId',async (req,res) => {
     res.redirect(`/user/${req.params.id}`)
 })
 
-//view applied jobs
+//get applied jobs
 router.get('/user/:id',async (req,res) => {
     const user = await User.findById(req.params.id)
     let appliedJobIds = user.appliedTo;

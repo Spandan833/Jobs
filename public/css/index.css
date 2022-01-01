@@ -2,16 +2,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: verdana, arial, helvetica;
-    padding: 10px;
+    font-family: verdana, arial, helvetica;   
+}
+h1{
+    font-family: verdana;
 }
 ul{
     display: block;
+    margin: 0;
+    padding: 0;
 }
 li{
     display:inline;
     list-style-type: none;
-    margin: 2px 10px;
+    margin: 2px 4px;
 }
 li a{
     text-decoration: none;
@@ -42,13 +46,14 @@ li a{
     padding: 10px;
     width: 300px;
     height: 350px;
+    background-color: rgb(240, 240, 240);
     font-family: sans-serif;
     border-radius: 30px;
     transition: all 0.2s;
 }
 .card:hover{
     margin-top: -15px;
-    box-shadow: 5px 5px 5px rgb(227, 186, 235);
+    box-shadow: 5px 5px 5px rgb(234, 204, 240);
 }
 
 .card-body{
@@ -63,10 +68,9 @@ li a{
     margin: 5px 0px 5px 0px;
 }
 .card-description{
-    height: 170px;
-    overflow: auto;
-    border: 1px solid rgba(240,240,240,0.5);
+    height:170px;
 }
+
 #apply{
     border: 0;
     padding: 10px 20px;
