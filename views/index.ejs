@@ -10,9 +10,9 @@
 </head>
 <body>
     <div class="header">
-        <h1>Job Hunter</h1>
-        <div>
-            <a href="/user/<%=user.id%>"><p>Your Jobs</p></a>
+        <h2>Job Hunter</h2>
+        <div class="header-links">
+            <a href="/user/<%=user.id%>">Your Jobs</a>
             <form action="/logout?_method=DELETE" method="POST">
                 <button type="submit" id="logout">Logout</button>
             </form>
@@ -22,8 +22,8 @@
     <div class="feature">
         <img src="/images/undraw_interview_re_e5jn.svg" alt="" id="main-image">
         <div class="feature-text">
-            <h2>The Job of Your Dreams</h1>
-            <h2>Now in the palm of your hands.</h2>
+            <h2>The Job of Your Dreams</h2>
+            <h2>Now in the palm of your hands</h2>
         </div>
     </div>
     
@@ -35,7 +35,7 @@
                     <div class="card-title"><strong><%=job.role%></strong></div>
                     <div class="card-subtitle"><%=job.company%></div>
                     <div class="card-salary"><b>Salary:    <%=job.salary %></b></div>
-                    <h3>Description:</h3>
+                    <div>Description:</div>
                     <div  class="card-description"><%=job.description %></div>
                 </div>
                 <div class="footer">
