@@ -1,5 +1,13 @@
+body{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items:center;
+}
 .header{
     display: flex;
+    width: 100%;
+
     justify-content: space-between;
     align-items: center;
     font-family: verdana, arial, helvetica;   
@@ -27,21 +35,21 @@ li a{
 }
 .feature{
     display: flex;
-    width: 100%;
+    width: 90%;
     align-items: center;
+    justify-content: space-evenly;
 }
 #main-image{
     display: block;
     width: 40%;
 }
 .feature-text{
-    flex: 2;
     display: flex;
     flex-direction: column;
     font-family: verdana,sans-serif;
-    align-items: center;
     text-align: center;
-    font-size: larger;
+    font-size: 1.5em;
+    margin-top: 10px;
 }
 
 .container{
@@ -110,6 +118,14 @@ li a{
     }
     .feature{
         flex-direction: column;
-        font-size:smaller;
+        margin-top: 10px;
+    }
+    .feature h2{
+        margin: 0px;
+        font-size:22px;
+    }
+    #main-image{
+        width: 100%;
+        height:auto;
     }
 }
