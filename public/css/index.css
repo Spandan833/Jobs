@@ -35,11 +35,12 @@ li a{
     justify-items: center;
 }
 #main-image{
-    text-align: center;
-    width: 100%;
-    height: auto;
+    display: block;
+    margin: 20px auto;
+    max-width: 90%;
 }
-@media (max-width: 600px){
+
+@media (max-width: 480px){
     .container{
         display:flex;
         flex-direction: column;
