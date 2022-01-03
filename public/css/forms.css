@@ -45,7 +45,7 @@ input[type="text"],input[type="password"]{
     background-color: rgb(58, 75, 189);
     border: 0px;
     position: relative;
-    left: 230px;
+    left: 190px;
 }
 .btn:focus{
     background-color:rgb(20, 33, 120);
