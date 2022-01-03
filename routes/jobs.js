@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router();
 const {Job} = require('../models/Job');
 const User = require('../models/User');
-const mongoose = require('mongoose');
 
 //job apply route
 router.put('/user/:id/:jobId',async (req,res) => {
