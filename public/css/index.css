@@ -77,7 +77,7 @@ li a{
     display: grid;
     width: 100%;
     padding: 50px 0px;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: 1fr;
     gap: 30px 0px;
     align-items: center;
     justify-items: center;
@@ -87,10 +87,10 @@ li a{
 
 .card{
     
-    border: 0.8px solid rgb(227, 186, 235);
+    border: 0.8px solid rgb(186, 208, 235);
     padding: 10px;
-    width: 300px;
-    height: 350px;
+    width: 90%;
+    /* height: 320px; */
     background-color: rgb(240, 240, 240);
     font-family: sans-serif;
     border-radius: 30px;
@@ -105,6 +105,7 @@ li a{
     margin-left: 10px;
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
 .card-title{
     font-size: 24px;
@@ -112,15 +113,13 @@ li a{
 .card-salary{
     margin: 5px 0px 5px 0px;
 }
-.card-description{
-    height:170px;
-}
 
 #apply{
     border: 0;
     padding: 10px 20px;
-    margin: 10px;
-    float: right;
+    width: 150px;
+    margin: 0px;
+    margin-right: auto;
     background-color: blue;
     color: white;
     border-radius: 10px;
@@ -136,6 +135,9 @@ li a{
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+    .card{
+        max-width:100%;
     }
     .feature{
         flex-direction: column;

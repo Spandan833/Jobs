@@ -21,7 +21,7 @@ mongoose.connect("mongodb+srv://Aizen833:ScarTissue1999@hogyoku.kmr9q.mongodb.ne
 const jobRouter = require("./routes/jobs");
 app.use(methodOverride("_method"));
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
 
 
@@ -101,6 +101,7 @@ app.post("/register", async (req, res, done) => {
   }
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    console.log(req.body);
     let newUser = new User({
       name: req.body.name,
       password: hashedPassword,

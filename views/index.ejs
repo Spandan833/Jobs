@@ -37,10 +37,11 @@
                     <div class="card-salary"><b>Salary:    <%=job.salary %></b></div>
                     <div>Description:</div>
                     <div  class="card-description"><%=job.description %></div>
+                    <div class="footer">
+                        <form action="/user/<%=user.id%>/<%=job.id%>?_method=PUT" method="POST"><button id="apply">Apply</button></form>
+                    </div>
                 </div>
-                <div class="footer">
-                    <form action="/user/<%=user.id%>/<%=job.id%>?_method=PUT" method="POST"><button id="apply">Apply</button></form>
-                </div>
+                
             </div>
         <% }) %>
     </div>
