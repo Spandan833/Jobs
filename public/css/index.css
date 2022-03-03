@@ -91,7 +91,7 @@ li a{
     padding: 10px;
     width: 90%;
     /* height: 320px; */
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(245, 245, 245);
     font-family: sans-serif;
     border-radius: 30px;
     transition: all 0.2s;
@@ -120,7 +120,7 @@ li a{
     width: 150px;
     margin: 0px;
     margin-right: auto;
-    background-color: blue;
+    background-color: rgb(108, 108, 203);
     color: white;
     border-radius: 10px;
 }
@@ -128,6 +128,23 @@ li a{
     text-decoration: none;
     text-emphasis: none;
     color: white;
+}
+.userjobs{
+    border: 0;
+    padding: 10px 20px;
+    width: 150px;
+    margin: 0px;
+    margin-right: auto;
+    background-color: rgb(108, 108, 203);
+    color: white;
+    border-radius: 10px;
+}
+.userjobs:hover{
+    background-color: rgb(87, 87, 250)
+}
+.userjobs > a{
+    color: white;
+    text-decoration: none;
 }
 @media (max-width: 600px){
     .container{

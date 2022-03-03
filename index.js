@@ -109,7 +109,7 @@ app.post("/register", async (req, res, done) => {
     });
     newUser = await newUser.save();
     console.log(newUser);
-    res.redirect("/login");
+    return res.redirect("/login");
   } catch (err) {
     res.redirect('/register')
   }
