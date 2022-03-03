@@ -95,24 +95,22 @@ app.get("/register", (req, res) => {
 });
 
 app.post("/register", async (req, res, done) => {
-  const user = await User.find({ email: req.body.email });
+  const user = await User.findOne({ email: req.body.email });
+  console.log(user);
   if (user) {
-    res.redirect("/login");
-  }
-  try {
-    const hashedPassword = await bcrypt.hash(req.body.password, 10);
-    console.log(req.body);
-    let newUser = new User({
-      name: req.body.name,
-      password: hashedPassword,
-      email: req.body.email,
-    });
-    newUser = await newUser.save();
-    console.log(newUser);
     return res.redirect("/login");
-  } catch (err) {
-    res.redirect('/register')
   }
+  
+  const hashedPassword = await bcrypt.hash(req.body.password, 10);
+  
+  let newUser = new User({
+    name: req.body.name,
+    password: hashedPassword,
+    email: req.body.email,
+  });
+  newUser = await newUser.save();
+  return res.redirect("/login");
+  
 });
 app.delete("/logout", (req, res) => {
   req.logOut();
