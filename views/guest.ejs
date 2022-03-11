@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/guest.css">
     <title>Job Hunter</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,10 +14,7 @@
     <div class="header">
         <h2>Job Hunter</h2>
         <div class="header-links">
-            <button class="userjobs"><a href="/user/<%=user.id%>">Your Jobs</a></button>
-            <form action="/logout?_method=DELETE" method="POST">
-                <button type="submit" id="logout">Logout</button>
-            </form>
+            <a type="submit" href="/login"id="logout">Login</a>
         </div>
     </div>
     
@@ -36,11 +33,11 @@
                 <div class="card-body">
                     <div class="card-title"><strong><%=job.role%></strong></div>
                     <div class="card-subtitle"><%=job.company%></div>
-                    <div class="card-salary"><b>Salary:    <%=job.salary %></b></div>
+                    <div class="card-salary"><b>Salary: <%=job.salary %></b></div>
                     <div>Description:</div>
                     <div  class="card-description"><%=job.description %></div>
                     <div class="footer">
-                        <form action="/user/<%=user.id%>/<%=job.id%>?_method=PUT" method="POST"><button id="apply">Apply</button></form>
+                        <a class="apply" href="/login">Apply</a>
                     </div>
                 </div>
                 

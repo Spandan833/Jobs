@@ -12,7 +12,7 @@ const passport = require("passport");
 const flash = require("express-flash");
 const session = require("express-session");
 const methodOverride = require("method-override");
-const { Job } = require("./models/Job");
+const Job  = require("./models/Job");
 
 mongoose.connect("mongodb+srv://Aizen833:ScarTissue1999@hogyoku.kmr9q.mongodb.net/JobHunter?retryWrites=true&w=majority", () => {
   console.log("connected to mongodb atlas");
@@ -63,7 +63,7 @@ let checkAuthentication = (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
   }
-  res.redirect("/login");
+  res.redirect("/guest");
 };
 
 let checkNotAuthenticated = (req, res, next) => {
@@ -73,6 +73,10 @@ let checkNotAuthenticated = (req, res, next) => {
   next();
 };
 app.use("/", jobRouter);
+app.get("/guest",async (req, res) => {
+  const jobs = await Job.find({});
+  res.render("guest.ejs", {jobs: jobs});
+});
 
 app.get("/", checkAuthentication, async (req, res) => {
   const jobs = await Job.find({});
@@ -96,13 +100,12 @@ app.get("/register", (req, res) => {
 
 app.post("/register", async (req, res, done) => {
   const user = await User.findOne({ email: req.body.email });
-  console.log(user);
   if (user) {
     return res.redirect("/login");
   }
   
   const hashedPassword = await bcrypt.hash(req.body.password, 10);
-  
+  console.log(req.body.name);
   let newUser = new User({
     name: req.body.name,
     password: hashedPassword,

@@ -113,18 +113,23 @@ li a{
 .card-salary{
     margin: 5px 0px 5px 0px;
 }
-
-#apply{
+.footer{
+    margin: 5px 0px 5px 2px;
+}
+.apply{
     border: 0;
-    padding: 10px 20px;
+    padding: 8px 30px;
     width: 150px;
-    margin: 0px;
+    margin: 5px 0px 5px 2px;
     margin-right: auto;
     background-color: rgb(108, 108, 203);
     color: white;
     border-radius: 10px;
 }
-#apply a{
+.apply:hover{
+    background-color: rgb(87, 87, 250)
+}
+a{
     text-decoration: none;
     text-emphasis: none;
     color: white;

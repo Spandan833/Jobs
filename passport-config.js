@@ -2,7 +2,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 function initialize(passport,getUserByEmail,getUserById) {
-    const authenticateUser = async (email, password,done) => {
+    const authenticateUser = async (email, password, done) => {
         const user = await getUserByEmail(email);
         if(!user){
             return done(null,false,{message: "Authentication failed"})
@@ -26,7 +26,7 @@ function initialize(passport,getUserByEmail,getUserById) {
     passport.deserializeUser(async (id,done) => {
         let user = await getUserById(id);
         done(null,user)
-     });
+    });
 }
 
 module.exports = initialize
