@@ -14,7 +14,7 @@ const session = require("express-session");
 const methodOverride = require("method-override");
 const Job  = require("./models/Job");
 
-mongoose.connect("mongodb+srv://Aizen833:ScarTissue1999@hogyoku.kmr9q.mongodb.net/JobHunter?retryWrites=true&w=majority", () => {
+mongoose.connect("mongodb+srv://Aizen833:ScarTissue1999@hogyoku.xr1i8on.mongodb.net/?retryWrites=true&w=majority&appName=Hogyoku", () => {
   console.log("connected to mongodb atlas");
 });
 
