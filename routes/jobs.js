@@ -22,7 +22,13 @@ router.put('/user/:id/:jobId',async (req,res) => {
 
 //withdraw application
 router.delete('/user/:id/:jobId',async (req,res) => {
-    const user = await User.findById(req.params.id);
+    let user;
+    try{
+        user = await User.findById(req.params.id);
+    }
+    catch(error){
+        return res.redirect("/");
+    }
     const appliedTo = user.appliedTo;
     let updatedJobIds = appliedTo.filter(jobId => (jobId.toString() != req.params.jobId))
     user.appliedTo = updatedJobIds;
@@ -32,7 +38,13 @@ router.delete('/user/:id/:jobId',async (req,res) => {
 
 //get applied jobs
 router.get('/user/:id',async (req,res) => {
-    const user = await User.findById(req.params.id)
+    let user;
+    try{
+        user = await User.findById(req.params.id);
+    }
+    catch(error){
+        return res.status(500).send("Failed");
+    }
     let appliedJobIds = user.appliedTo;
     let appliedJobs = []
     

@@ -13,10 +13,12 @@ const flash = require("express-flash");
 const session = require("express-session");
 const methodOverride = require("method-override");
 const Job  = require("./models/Job");
+const dotenv = require('dotenv')
+dotenv.config();
 
-mongoose.connect("mongodb+srv://Aizen833:ScarTissue1999@hogyoku.xr1i8on.mongodb.net/?retryWrites=true&w=majority&appName=Hogyoku", () => {
-  console.log("connected to mongodb atlas");
-});
+const mongodbUri = `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@hogyoku.xr1i8on.mongodb.net/?retryWrites=true&w=majority&appName=Hogyoku`
+console.log(mongodbUri);
+mongoose.connect(mongodbUri).catch(error => console.log(error))
 
 const jobRouter = require("./routes/jobs");
 app.use(methodOverride("_method"));
