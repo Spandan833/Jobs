@@ -55,5 +55,22 @@ router.get('/user/:id',async (req,res) => {
     res.render('applied.ejs',{jobs: appliedJobs,user: user});
 })
 
+router.get('/user/:userId/job/:id', async(req,res) => {
+    let job;
+    let user;
+    try{
+        user = await User.findById(req.params.userId)
+        job = await Job.findById(req.params.id);
+
+    }
+    catch(error){
+        return res.status(500).send("Failed");
+    }
+    res.render('job.ejs',{job:job, user:user})
+})
+
+router.get('/usr/:id/search',async(req,res) => {
+
+})
 
 module.exports = router;

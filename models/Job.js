@@ -19,7 +19,13 @@ let jobSchema = new mongoose.Schema({
     description:{
         type: String,
         required: false
+    },
+    featured:{
+        type: Boolean,
+        required: false
     }
+
 })
+
 const Job = mongoose.model("job", jobSchema);
 module.exports = Job;

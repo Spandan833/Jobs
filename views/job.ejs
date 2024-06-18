@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Details</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/index.css">
+
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <h2 class="col">Job Hunter</h2>
+      <div class="header-links col">
+          <button class="userjobs"><a href="/user/<%=user.id%>">Your Jobs</a></button>
+          <form action="/logout?_method=DELETE" method="POST">
+              <button type="submit" id="logout">Logout</button>
+          </form>
+      </div>
+    </div>
+    
+  </div>
+  
+</div>
+  <div class="container my-5">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="card-title"><%= job.role %></h1>
+        <h5 class="card-subtitle mb-2 text-muted"><%= job.company %></h5>
+        <p class="card-text">Salary: $<%= job.salary %></p>
+        <p class="card-text">Posted On: <%= job.postedOn?.toDateString() %></p>
+        <% if (job.description) { %>
+          <p class="card-text"><%= job.description %></p>
+        <% } else { %>
+          <p class="card-text">No description provided.</p>
+        <% } %>
+        <div class="footer">
+          <form action="/user/<%=user.id%>/<%=job.id%>?_method=PUT" method="POST"><button id="apply" class="btn btn-primary">Apply</button></form>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

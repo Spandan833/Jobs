@@ -81,8 +81,11 @@ app.get("/guest",async (req, res) => {
 });
 
 app.get("/", checkAuthentication, async (req, res) => {
-  const jobs = await Job.find({});
-  res.render("index.ejs", { user: req.user, jobs: jobs });
+  let jobs = await Job.find({});
+  let unFeaturedJobs = jobs.filter(job => job?.featured != true);
+
+  const featuredJob = jobs.find(job => job?.featured == true)
+  res.render("index.ejs", { user: req.user, jobs: unFeaturedJobs , featuredJob : featuredJob});
 });
 
 app.post(

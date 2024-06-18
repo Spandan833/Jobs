@@ -28,21 +28,23 @@
     
     
     <div class="container">
-        <% jobs.forEach(job => { %>
-            <div class="card">
-                <div class="card-body">
-                    <div class="card-title"><strong><%=job.role%></strong></div>
-                    <div class="card-subtitle"><%=job.company%></div>
-                    <div class="card-salary"><b>Salary: <%=job.salary %></b></div>
-                    <div>Description:</div>
-                    <div  class="card-description"><%=job.description %></div>
-                    <div class="footer">
-                        <a class="apply" href="/login">Apply</a>
+        <div class="row">
+            <% jobs.forEach(job => { %>
+                <div class="card col-4">
+                    <div class="card-body">
+                        <div class="card-title"><strong><%=job.role%></strong></div>
+                        <div class="card-subtitle"><%=job.company%></div>
+                        <div class="card-salary"><b>Salary: <%=job.salary %></b></div>
+                        <div>Description:</div>
+                        <div  class="card-description"><%=job.description %></div>
+                        <div class="footer">
+                            <a class="apply" href="/login">Apply</a>
+                        </div>
                     </div>
+                    
                 </div>
-                
-            </div>
-        <% }) %>
+            <% }) %>
+        </div>
     </div>
     
 </body>
