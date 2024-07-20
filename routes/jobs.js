@@ -55,22 +55,32 @@ router.get('/user/:id',async (req,res) => {
     res.render('applied.ejs',{jobs: appliedJobs,user: user});
 })
 
-router.get('/user/:userId/job/:id', async(req,res) => {
+router.get('/job/:id', async(req,res) => {
     let job;
-    let user;
     try{
-        user = await User.findById(req.params.userId)
         job = await Job.findById(req.params.id);
-
     }
     catch(error){
         return res.status(500).send("Failed");
     }
-    res.render('job.ejs',{job:job, user:user})
+    res.render('job.ejs',{job:job, user:req.user})
 })
 
-router.get('/usr/:id/search',async(req,res) => {
+router.get('/jobs/search',async(req,res) => {
+    let query = req.body.query;
 
+    let jobs = await Job.find({});
+
+    let searchResults = jobs.filter((job) => 
+    {
+        const descriptionMatch = job.description?.toLowerCase().includes(query.toLowerCase());
+        const roleMatch = job.role?.toLowerCase().includes(query.toLowerCase());
+        const companyMatch = job.company?.toLowerCase().includes(query.toLowerCase());
+
+        return descriptionMatch || roleMatch || companyMatch;
+    })
+
+    return res.render('searchJobs.ejs',{user:req.user,jobs: searchResults});
 })
 
 module.exports = router;

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-900 text-white">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Hunter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  </head>
+  <body class="min-h-screen font-['Inter',sans-serif]">
+    <div class="header">
+      <h2>Job Hunter</h2>
+      <div class="header-links">
+        <button class="userjobs">
+          <a href="/user/<%=user.id%>">Your Jobs</a>
+        </button>
+        <form action="/logout?_method=DELETE" method="POST">
+          <button type="submit" id="logout">Logout</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <% if(jobs.length == 0) {%>
+        <h1>No jobs found</h1>
+        <% } %> <% jobs.forEach(job => { %>
+        <div class="col-4 mb-4">
+          <div class="card rounded">
+            <div class="card-body">
+              <div class="card-title"><strong><%=job.role%></strong></div>
+              <div class="card-subtitle"><%=job.company%></div>
+              <div class="card-salary"><b>Salary: <%=job.salary %></b></div>
+              <div>Description:</div>
+              <div class="footer">
+                <div class="row">
+                  <form
+                    action="/user/<%=user.id%>/<%=job.id%>?_method=PUT"
+                    method="POST"
+                    class="col"
+                  >
+                    <button id="apply" class="btn btn-primary">Apply</button>
+                  </form>
+                  <a class="btn btn-primary col" href="/job/<%=job.id%>"
+                    >Details</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </body>
+</html>

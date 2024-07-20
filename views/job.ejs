@@ -1,47 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Job Details</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/css/index.css">
-
-</head>
-<body>
-  <div class="container">
-    <div class="row">
-      <h2 class="col">Job Hunter</h2>
-      <div class="header-links col">
-          <button class="userjobs"><a href="/user/<%=user.id%>">Your Jobs</a></button>
-          <form action="/logout?_method=DELETE" method="POST">
-              <button type="submit" id="logout">Logout</button>
+<html lang="en" class="bg-gray-900 text-white">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Details - <%= job.role %></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  </head>
+  <body class="min-h-screen font-['Inter',sans-serif]">
+    <header class="bg-gray-800 p-4">
+      <div class="container mx-auto flex justify-between items-center">
+        <h2 class="text-3xl font-bold" style="font-family: 'Lobster', cursive">
+          Job Hunter
+        </h2>
+        <div class="space-x-4">
+          <a
+            href="/user/<%=user.id%>"
+            class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition-colors duration-300"
+            >Your Jobs</a
+          >
+          <form action="/logout?_method=DELETE" method="POST" class="inline">
+            <button
+              type="submit"
+              class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded transition-colors duration-300"
+            >
+              Logout
+            </button>
           </form>
+        </div>
       </div>
-    </div>
-    
-  </div>
-  
-</div>
-  <div class="container my-5">
-    <div class="card">
-      <div class="card-body">
-        <h1 class="card-title"><%= job.role %></h1>
-        <h5 class="card-subtitle mb-2 text-muted"><%= job.company %></h5>
-        <p class="card-text">Salary: $<%= job.salary %></p>
-        <p class="card-text">Posted On: <%= job.postedOn?.toDateString() %></p>
-        <% if (job.description) { %>
-          <p class="card-text"><%= job.description %></p>
-        <% } else { %>
-          <p class="card-text">No description provided.</p>
-        <% } %>
-        <div class="footer">
-          <form action="/user/<%=user.id%>/<%=job.id%>?_method=PUT" method="POST"><button id="apply" class="btn btn-primary">Apply</button></form>
-      </div>
-      </div>
-    </div>
-  </div>
+    </header>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <main class="container mx-auto mt-8 px-4">
+      <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h1 class="text-3xl font-bold text-blue-400"><%= job.role %></h1>
+            <span
+              class="bg-blue-500 text-xs font-semibold px-2 py-1 rounded-full"
+              >New</span
+            >
+          </div>
+          <p class="text-xl text-gray-400 mb-4 flex items-center">
+            <i data-feather="briefcase" class="w-5 h-5 mr-2"></i>
+            <%= job.company %>
+          </p>
+          <p class="text-2xl font-semibold mb-6 flex items-center">
+            <i data-feather="dollar-sign" class="w-5 h-5 mr-2"></i>
+            $<%= job.salary %>
+          </p>
+          <p class="text-gray-300 mb-4 flex items-center">
+            <i data-feather="calendar" class="w-5 h-5 mr-2"></i>
+            Posted on: <%= job.postedOn?.toDateString() %>
+          </p>
+          <div class="mb-6 flex flex-wrap gap-2">
+            <span
+              class="bg-gray-700 text-gray-300 text-sm px-3 py-1 rounded-full"
+              >Full-time</span
+            >
+            <span
+              class="bg-gray-700 text-gray-300 text-sm px-3 py-1 rounded-full"
+              >Remote</span
+            >
+            <span
+              class="bg-gray-700 text-gray-300 text-sm px-3 py-1 rounded-full"
+              >JavaScript</span
+            >
+          </div>
+          <div class="mb-8">
+            <h2 class="text-xl font-semibold mb-4">Job Description</h2>
+            <% if (job.description) { %>
+            <p class="text-gray-300 whitespace-pre-line">
+              <%= job.description %>
+            </p>
+            <% } else { %>
+            <p class="text-gray-300">No description provided.</p>
+            <% } %>
+          </div>
+        </div>
+        <div class="bg-gray-700 p-6">
+          <form
+            action="/user/<%=user.id%>/<%=job.id%>?_method=PUT"
+            method="POST"
+          >
+            <button
+              type="submit"
+              class="w-full bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-full text-lg font-semibold transition-colors duration-300 flex items-center justify-center"
+            >
+              <i data-feather="send" class="w-5 h-5 mr-2"></i>
+              Apply Now
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      feather.replace();
+    </script>
+  </body>
 </html>

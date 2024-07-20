@@ -1,171 +1,167 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-body{
-    display:flex;
-    flex-direction:column;
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.header {
+  display: flex;
+  width: 100%;
+  height: 60px;
+  padding: 0 10px;
+  background-color: rgba(240, 240, 240, 0.8);
+  justify-content: space-between;
+  align-items: center;
+  font-family: verdana, arial, helvetica;
+}
+.header-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+#logout {
+  border: 0;
+  padding: 10px 10px;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+}
+
+.header h1 {
+  font-family: verdana;
+  position: relative;
+  left: 10px;
+}
+ul {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+li {
+  display: inline;
+  list-style-type: none;
+  margin: 2px 4px;
+}
+li a {
+  text-decoration: none;
+  color: black;
+}
+.feature {
+  margin: 10px 0;
+
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+#main-image {
+  display: block;
+  width: 40%;
+}
+.feature-text {
+  display: flex;
+  flex-direction: column;
+  font-family: "Lobster", sans-serif;
+  text-align: center;
+  font-size: 1.5em;
+  margin-top: 10px;
+}
+
+.container {
+  display: grid;
+  width: 100%;
+  padding: 50px 0px;
+  grid-template-columns: 1fr;
+  gap: 30px 0px;
+  align-items: center;
+  justify-items: center;
+}
+
+.card {
+  border: 0.8px solid rgb(186, 208, 235);
+  padding: 10px;
+  width: 90%;
+  /* height: 320px; */
+  background-color: rgb(245, 245, 245);
+  font-family: sans-serif;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+.card:hover {
+  margin-top: -15px;
+  box-shadow: 5px 5px 5px rgb(234, 204, 240);
+}
+
+.card-body {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.card-title {
+  font-size: 24px;
+}
+.card-salary {
+  margin: 5px 0px 5px 0px;
+}
+
+#apply {
+  border: 0;
+  padding: 10px 20px;
+  width: 150px;
+  margin: 0px;
+  margin-right: auto;
+  background-color: rgb(108, 108, 203);
+  color: white;
+  border-radius: 10px;
+}
+#apply a {
+  text-decoration: none;
+  text-emphasis: none;
+  color: white;
+}
+.userjobs {
+  border: 0;
+  padding: 10px 20px;
+  width: 150px;
+  margin: 0px;
+  margin-right: auto;
+  background-color: rgb(108, 108, 203);
+  color: white;
+  border-radius: 10px;
+}
+.userjobs:hover {
+  background-color: rgb(87, 87, 250);
+}
+.userjobs > a {
+  color: white;
+  text-decoration: none;
+}
+@media (max-width: 600px) {
+  .container {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items:center;
-}
-.header{
-    display: flex;
-    width:100%;
-    height: 60px;
-    padding: 0 10px;
-    background-color: rgba(240,240,240,0.8);
-    justify-content: space-between;
     align-items: center;
-    font-family: verdana, arial, helvetica;   
-}
-.header-links{
-    display: flex;
-    gap: 20px;
-    align-items: center;
-}
-#logout{
-    border: 0;
-    padding: 10px 10px;
-    background-color: black;
-    color: white;
-    border-radius: 10px;
-}
-
-.header h1{
-    font-family: verdana;
-    position: relative;
-    left: 10px;
-}
-ul{
-    display: block;
-    margin: 0;
-    padding: 0;
-}
-li{
-    display:inline;
-    list-style-type: none;
-    margin: 2px 4px;
-}
-li a{
-    text-decoration: none;
-    color: black;
-
-}
-.feature{
-    margin: 10px 0;
-
-    display: flex;
-    width: 90%;
-    align-items: center;
-    justify-content: space-evenly;
-}
-#main-image{
-    display: block;
-    width: 40%;
-}
-.feature-text{
-    display: flex;
+  }
+  .card {
+    max-width: 100%;
+  }
+  .feature {
     flex-direction: column;
-    font-family: "Lobster",sans-serif;
-    text-align: center;
-    font-size: 1.5em;
     margin-top: 10px;
-}
-
-.container{
-    display: grid;
+  }
+  .feature h2 {
+    margin: 0px;
+    font-size: 22px;
+  }
+  #main-image {
     width: 100%;
-    padding: 50px 0px;
-    grid-template-columns: 1fr;
-    gap: 30px 0px;
-    align-items: center;
-    justify-items: center;
-}
-
-
-
-.card{
-    
-    border: 0.8px solid rgb(186, 208, 235);
-    padding: 10px;
-    width: 90%;
-    /* height: 320px; */
-    background-color: rgb(245, 245, 245);
-    font-family: sans-serif;
-    border-radius: 30px;
-    transition: all 0.2s;
-}
-.card:hover{
-    margin-top: -15px;
-    box-shadow: 5px 5px 5px rgb(234, 204, 240);
-}
-
-.card-body{
-    margin-left: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.card-title{
-    font-size: 24px;
-}
-.card-salary{
-    margin: 5px 0px 5px 0px;
-}
-
-#apply{
-    border: 0;
-    padding: 10px 20px;
-    width: 150px;
-    margin: 0px;
-    margin-right: auto;
-    background-color: rgb(108, 108, 203);
-    color: white;
-    border-radius: 10px;
-}
-#apply a{
-    text-decoration: none;
-    text-emphasis: none;
-    color: white;
-}
-.userjobs{
-    border: 0;
-    padding: 10px 20px;
-    width: 150px;
-    margin: 0px;
-    margin-right: auto;
-    background-color: rgb(108, 108, 203);
-    color: white;
-    border-radius: 10px;
-}
-.userjobs:hover{
-    background-color: rgb(87, 87, 250)
-}
-.userjobs > a{
-    color: white;
-    text-decoration: none;
-}
-@media (max-width: 600px){
-    .container{
-        display:flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    .card{
-        max-width:100%;
-    }
-    .feature{
-        flex-direction: column;
-        margin-top: 10px;
-    }
-    .feature h2{
-        margin: 0px;
-        font-size:22px;
-    }
-    #main-image{
-        width: 100%;
-        height:auto;
-    }
+    height: auto;
+  }
 }
