@@ -1,51 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/guest.css">
+<html lang="en" class="bg-gray-900 text-white">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Job Hunter</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="header">
-        <h2>Job Hunter</h2>
-        <div class="header-links">
-            <a type="submit" href="/login"id="logout">Login</a>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="min-h-screen">
+    <header class="bg-gray-800 p-4">
+      <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-3xl font-bold" style="font-family: 'Lobster', cursive">
+          Job Hunter
+        </h1>
+        <nav class="space-x-4">
+          <a
+            href="/login"
+            class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
+            >Login</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main class="container mx-auto mt-8 px-4">
+      <div class="md:flex md:items-center md:justify-center">
+        <div class="md:w-1/2 md:mr-12">
+          <img
+            src="/images/undraw_interview_re_e5jn.svg"
+            alt="Interview"
+            class="w-full md:h-64"
+          />
         </div>
-    </div>
-    
-    <div class="feature">
-        <img src="/images/undraw_interview_re_e5jn.svg" alt="" id="main-image">
-        <div class="feature-text">
-            <h2>The Job of Your Dreams</h2>
-            <h2>Now in the palm of your hands</h2>
+        <div class="mt-8 md:mt-0 md:w-1/2">
+          <h2 class="text-3xl font-bold md:text-4xl">Find Your Dream Job</h2>
+          <p class="mt-4 text-gray-400">
+            We bring the job of your dreams directly to you. Now, finding the
+            perfect career path is easier than ever.
+          </p>
+          <a
+            href="/login"
+            class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded mt-6"
+            >Get Started</a
+          >
         </div>
-    </div>
-    
-    
-    <div class="container">
-        <div class="row">
-            <% jobs.forEach(job => { %>
-                <div class="card col-4">
-                    <div class="card-body">
-                        <div class="card-title"><strong><%=job.role%></strong></div>
-                        <div class="card-subtitle"><%=job.company%></div>
-                        <div class="card-salary"><b>Salary: <%=job.salary %></b></div>
-                        <div>Description:</div>
-                        <div  class="card-description"><%=job.description %></div>
-                        <div class="footer">
-                            <a class="apply" href="/login">Apply</a>
-                        </div>
-                    </div>
-                    
-                </div>
-            <% }) %>
-        </div>
-    </div>
-    
-</body>
+      </div>
+    </main>
+  </body>
 </html>
